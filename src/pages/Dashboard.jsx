@@ -94,7 +94,7 @@ export default function Dashboard() {
             )}
 
             {mostrarFormulario ? (
-                // 🔹 Formulario
+                //  Formulario
                 <Box component="form" onSubmit={handleSubmit} display="flex" flexDirection="column" gap={2}>
                     <TextField label="Nombre" name="nombre" value={formData.nombre} onChange={handleChange} required />
                     <TextField label="Profesor" name="profesor" value={formData.profesor} onChange={handleChange} />
@@ -131,8 +131,7 @@ export default function Dashboard() {
                         </Button>
                     </Box>
                 </Box>
-            ) : materias.length === 0 ? (
-                // 🔹 Estado vacío
+            ) : materias.length === 0 ? ( //No hay materias
                 <Box
                     sx={{
                         mt: 8,
@@ -150,8 +149,7 @@ export default function Dashboard() {
                         Comenzá creando la primera con el botón <b>“Agregar Materia”</b>
                     </Typography>
                 </Box>
-            ) : (
-                // 🔹 Tarjetas con próximas fechas
+            ) : ( //Listado materias
                 <Grid container spacing={3}>
                     {materias.map((m) => {
                         const hoy = new Date();
