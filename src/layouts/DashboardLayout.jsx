@@ -45,7 +45,7 @@ export default function DashboardLayout({ children }) {
                                 },
                             }}
                         >
-                            Dashboard
+                            Inicio
                         </Button>
                         <IconButton
                             color="inherit"
