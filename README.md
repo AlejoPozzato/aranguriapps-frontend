@@ -89,22 +89,28 @@ Aplicación web para gestionar materias, profesores, fechas de examen y archivos
 - **Node.js 20+** instalado
 
 ### 💻 Correr Localmente
-Clonar el repositorio:
+1. **Clonar el repositorio:**
 
 git clone https://github.com/AlejoPozzato/aranguriapps-frontend.git
+
 cd aranguriapps-frontend
 
-Instalar dependencias:
+
+2. **Instalar dependencias:**
 
 npm install
 
-Levantar el servidor de desarrollo:
+3. **Levantar el proyecto:**
 
 npm run dev
 
-Abrirá la app en:
-👉 http://localhost:5173
+La aplicación estará disponible en:  
+👉 [http://localhost:5173](http://localhost:5173)
 
-📌 Notas
+---
 
-El proyecto esta pensado para funcionar en conjunto con https://github.com/AlejoPozzato/aranguriAppsBackend por lo que se deberá levantar primero el backend para que el frontend adquiera funcionalidad.
+### 📌 Notas
+Este proyecto está diseñado para funcionar junto con el backend:  
+🔗 [aranguriAppsBackend](https://github.com/AlejoPozzato/aranguriAppsBackend)
+
+Por lo tanto, **es necesario levantar primero el backend** para que el frontend pueda consumir sus servicios y ser completamente funcional.
