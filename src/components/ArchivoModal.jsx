@@ -3,7 +3,7 @@ import { Modal, Box, Typography, Button, List, ListItem, IconButton } from "@mui
 import { FiTrash2 } from "react-icons/fi";
 import { agregarArchivo, eliminarArchivo, getArchivos } from "../services/api";
 
-export default function ArchivosModal({ open, onClose, materia }) {
+export default function ArchivosModal({ open, onClose, materia, onArchivosActualizados }) {
     const [archivos, setArchivos] = useState([]);
     const [archivoSeleccionado, setArchivoSeleccionado] = useState(null);
 
@@ -18,6 +18,7 @@ export default function ArchivosModal({ open, onClose, materia }) {
         try {
             const data = await getArchivos(materiaId);
             setArchivos(data);
+            return data;
         } catch (err) {
             console.error(err);
         }
@@ -35,7 +36,8 @@ export default function ArchivosModal({ open, onClose, materia }) {
         try {
             const nuevoArchivo = await agregarArchivo(materiaId, archivoData);
             setArchivoSeleccionado(null);
-            fetchArchivos();
+            const nuevos = await fetchArchivos();
+            onArchivosActualizados?.(materiaId, nuevos);
         } catch (err) {
             console.error(err);
         }
@@ -45,7 +47,8 @@ export default function ArchivosModal({ open, onClose, materia }) {
         if (!materiaId) return;
         try {
             await eliminarArchivo(materiaId, archivoId);
-            fetchArchivos();
+            const nuevos = await fetchArchivos();
+            onArchivosActualizados?.(materiaId, nuevos);
         } catch (err) {
             console.error(err);
         }

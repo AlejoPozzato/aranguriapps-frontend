@@ -78,6 +78,15 @@ export default function Dashboard() {
         }
     };
 
+    //Para actualizar archivos en el dashboard luego de subir un archivo.
+    const handleActualizarArchivos = (materiaId, nuevosArchivos) => {
+        setMaterias(prev =>
+            prev.map(m =>
+                m.id === materiaId ? { ...m, archivos: nuevosArchivos } : m
+            )
+        );
+    };
+
     return (
         <DashboardLayout>
             <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
@@ -142,6 +151,7 @@ export default function Dashboard() {
                     open={mostrarArchivos}
                     onClose={() => setMostrarArchivos(false)}
                     materia={materiaSeleccionada}
+                    onArchivosActualizados={handleActualizarArchivos}
                 />
             )}
 
